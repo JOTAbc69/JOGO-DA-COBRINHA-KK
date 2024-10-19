@@ -1,0 +1,215 @@
+#incluir  <stdio.h>
+#incluir  <stdlib.h>
+#incluir  <ctype.h>
+int  principal ()
+{
+ int  i , contador , n , nchar , e1 , e2 , e3 , e4 , e5 , certo , animação , animacao2 ;
+ char  frase [ 100 ], resposta [ 100 ], tentativa , confirmar , continuar ;
+ fazer {
+  sistema ( "cls" );
+  puts ( "___________ \n| | \n| _|_\n| O Jogo de Força por Seathus \n| /|\\ Versão 2.0 \n| / \\ \n| \n| \n| \n" );
+  puts ( "Instruções: esse jogo e para ser jogado de duas pessoas do seguinte modo: a primeira pessoa digita uma palavra ou frase e a segunda tenta advinhar o que foi digitado.\n" );
+  confirmar  =  'n' ;
+  enquanto ( confirmar  !=  'S' )
+    {
+      certo  =  0 ;
+      nchar = 0 ;
+      n  =  0 ;
+      eu = 0 ;
+      contador  =  0 ;
+      e1  =  ' ' ;
+      e2  =  ' ' ;
+      e3  =  ' ' ;
+      e4  =  ' ' ;
+      e5  =  ' ' ;
+      printf ( "\nCertifique-se que o outro jogador não veja e digite a palavra ou a frase desejada: " );
+      fflush ( padrão );
+      fica ( frase );
+      printf ( "%s, confirmar? (digite 's' para confirmar e 'n' para digitar novamente: " , frase );
+      fflush ( padrão );
+      scanf ( "%c" , & confirmar );
+      mudar ( confirmar )
+        {
+          caso  's' :
+          printf ( "O jogo será iniciado...\n" );
+          sistema ( "PAUSA" );
+          sistema ( "CLS" );
+          para ( i  =  0 ; i  <  100 ; i ++ )
+            {
+              resposta [ i ] = '_' ;
+            }
+          enquanto ( contador  <  6 )
+            {
+              n = 0 ;
+              certo = 0 ;
+              interruptor ( contador )
+                {
+                  caso  0 : printf ( "___________ \n| | \n| _|_\n| \n| \ \n| \n| \n| \n| \n\n" );
+                          quebrar ;
+                      
+                  caso  1 : printf ( "___________ \n| | \n| _|_\n| O \n| \n| \n| \n| \n| \n\n" );
+                          quebrar ;
+                      
+                  caso  2 : printf ( "___________ \n| | \n| _|_\n| O \n| | \n| \n| \n| \n| \n\n" );
+                          quebrar ;
+                      
+                  caso  3 : printf ( "___________ \n| | \n| _|_\n| O \n| /| \n| \n| \n| \n| \n\n" );
+                          quebrar ;
+                      
+                  caso  4 : printf ( "___________ \n| | \n| _|_\n| O \n| /|\\ \n| \n| \n| \n| \n\n" );
+                          quebrar ;
+                      
+                  caso  5 : printf ( "___________ \n| | \n| _|_\n| O \n| /|\\ \n| / \n| \n| \n| \n\n" );
+                          quebrar ;
+                }
+              para ( i = 0 ; i  <  100 ; i ++ )
+                {
+                  se ( frase [ i ] == '\0' )
+                    {
+                      nchar  =  eu ;
+                      quebrar ;
+                    }
+                  outro
+                    {
+                      se ( frase [ i ] == ' ' )
+                        {
+                          resposta [ i ] = ' ' ;
+                          printf ( "%c" , resposta [ i ]);
+                        }
+                      outro
+                        {
+                          if ( frase [ i ] == tentativa )
+                            {
+                              resposta [ i ] = frase [ i ];
+                            }
+                        }
+                    }
+                  printf ( "%c " , resposta [ i ]);    
+                }
+              printf ( "\n\n%c %c %c %c %c\n" , e1 , e2 , e3 , e4 , e5 );
+              interruptor ( contador )
+                {
+                  case  0 : puts ( "\n\nVocê pode errar 5 vezes" );
+                          quebrar ;
+                  case  1 : puts ( "\n\nVocê pode errar 4 vezes" );
+                          quebrar ;
+                  caso  2 : puts ( "\n\nVocê pode errar 3 vezes" );
+                          quebrar ;
+                  caso  3 : puts ( "\n\nVocê pode errar 2 vezes" );
+                          quebrar ;
+                  caso  4 : puts ( "\n\nVocê pode errar apenas mais uma vez" );
+                          quebrar ;
+                  case  5 : puts ( "\n\nSe errar agora morre! MuahAHAHhahahAHaHhahahaHa!!!" );
+                }
+                para ( i  =  0 ; i <= nchar ; i ++ )
+                {
+                 se ( tentativa != ' ' )
+                   {
+                    se ( resposta [ i ] != '_' )
+                      {
+                        certo ++ ;
+                        se ( certo == nchar )
+                          {
+                            contador = 7 ;                          
+                            quebrar ;
+                          }
+                      }
+                   }
+                }
+              se ( certo != nchar )
+              {
+              printf ( "\n\nDigite uma letra: " );
+              fflush ( padrão );
+              scanf ( "%c" , & tentativa );
+              tentativa  =  tolower ( tentativa );
+              }
+              para ( i  =  0 ; i  <  nchar ; i ++ )
+                {
+                  if ( tentativa != frase [ i ])
+                    {
+                      n ++ ;
+                      se ( n == nchar )
+                        {
+                          contador ++ ;
+                          se ( contador == 1 )
+                            {
+                              e1  =  tentativa ;
+                            }
+                          se ( contador == 2 )
+                            {
+                              e2  =  tentativa ;
+                            }
+                          se ( contador == 3 )
+                            {
+                              e3  =  tentativa ;
+                            }
+                          se ( contador == 4 )
+                            {
+                              e4  =  tentativa ;
+                            }
+                          se ( contador == 5 )
+                            {
+                              e5  =  tentativa ;
+                            }
+                        }
+                    }
+              }
+              sistema ( "cls" );
+            }
+          padrão : confirmar  =  'n' ;
+        }
+      se ( contador == 6 )
+        {
+          printf ( "___________ \n| | \n| _|_\n| O \n| /|\\ \n| / \\ \n| \n| \n| \n\n" );
+          para ( i  =  0 ; i  <  nchar ; i ++ )
+            {
+              if ( resposta [ i ] == frase [ i ])
+                {
+                  printf ( "%c " , resposta [ i ]);
+                }
+              outro
+                {
+                  printf ( "(%c)" , frase [ i ]);
+                }
+            }
+          printf ( "\n\n%c %c %c %c %c %c\n" , e1 , e2 , e3 , e4 , e5 , tentativa );
+          printf ( "\n\n\nMorreu playboy!!! PATOOOO!!!!! MuaHAhaAHAhahahahahaHaha!!!!\n" );
+          sistema ( "PAUSA" );
+        }
+      se ( contador == 7 )
+        {
+          for ( animação = 0 ; animação < 7 ; animação ++ )
+            {
+              for ( animação2 = 0 ; animação2 < 5 ; animação2 ++ )
+              {
+                sistema ( "cls" );
+                printf ( "Parabenos!! Voce Venceu!!\n" );
+                printf ( "___________ \n| | \n| _|_\n|\n|\n| O \n| /|\\ \n| / \\\n|\n\n" );
+              }
+              for ( animação2 = 0 ; animação2 < 5 ; animação2 ++ )
+              {
+                sistema ( "cls" );
+                printf ( "Parabenos!! Voce Venceu!!\n" );
+                printf ( "___________ \n| | \n| _|_\n|\n|\n|\n| _O_\n| | \n| / \\\n\n" );                
+              }
+              for ( animação2 = 0 ; animação2 < 5 ; animação2 ++ )
+              {
+                sistema ( "cls" );
+                printf ( "Parabenos!! Voce Venceu!!\n" );
+                printf ( "___________ \n| | \n| _|_\n|\n|\n| \\O/\n| | \n| / \\\n|\n\n" );
+              }
+            }
+          sistema ( "cls" );
+          printf ( "Parabenos!! Voce Venceu!!\n" );
+          printf ( "___________ \n| | \n| _|_\n|\n|\n|\n| \\O/\n| | \n| / \\\n\n" );
+          tentativa = '_' ;
+        }
+      confirmar  =  'S' ;
+      printf ( "Deseja jogar novamente (S/N)? " );
+      fflush ( padrão );
+      continuar  =  topper ( getchar ());
+    }
+} enquanto ( continuar == 'S' );
+ sistema ( "PAUSA" );
+ retornar  0 ;
+}
